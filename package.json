@@ -1,0 +1,39 @@
+{
+  "name": "broccoli-jade",
+  "version": "0.0.0",
+  "description": "Compile Jade templates",
+  "license": "MIT",
+  "repository": "sindresorhus/broccoli-jade",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "http://sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "broccoli build temp && mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "broccoli-plugin",
+    "jade",
+    "html",
+    "markup",
+    "template",
+    "tpl",
+    "compile"
+  ],
+  "dependencies": {
+    "broccoli-filter": "0.0.1",
+    "jade": "~1.1.5"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "broccoli": "~0.1.1",
+    "rimraf": "~2.2.6"
+  }
+}
