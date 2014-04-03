@@ -1,4 +1,4 @@
-# [broccoli](https://github.com/joliss/broccoli)-jade [![Build Status](https://travis-ci.org/sindresorhus/broccoli-jade.png?branch=master)](https://travis-ci.org/sindresorhus/broccoli-jade)
+# [broccoli](https://github.com/joliss/broccoli)-jade [![Build Status](https://travis-ci.org/sindresorhus/broccoli-jade.svg?branch=master)](https://travis-ci.org/sindresorhus/broccoli-jade)
 
 > Compile [Jade](https://github.com/visionmedia/jade) templates
 
@@ -7,12 +7,12 @@
 
 ## Install
 
-```
-npm install --save broccoli-jade
+```bash
+$ npm install --save broccoli-jade
 ```
 
 
-## Example
+## Usage
 
 ```js
 var jade = require('broccoli-jade');
@@ -33,4 +33,4 @@ In addition you can pass in `options.data` that will be used as locals for your 
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
