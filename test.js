@@ -12,4 +12,9 @@ it('should compile Jade', function () {
 		fs.readFileSync('temp/fixture.html', 'utf8'),
 		fs.readFileSync('fixture/expected.html', 'utf8').trim()
 	);
+
+  assert.equal(
+    fs.readFileSync('temp/fixture2.html', 'utf8'),
+    fs.readFileSync('fixture/expected2.html', 'utf8').trim()
+  );
 });
