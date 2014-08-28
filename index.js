@@ -19,26 +19,26 @@ JadeFilter.prototype.extensions = ['jade'];
 JadeFilter.prototype.targetExtension = 'html';
 
 JadeFilter.prototype.cloneOptions = function(keysToOmit) {
-  var optionsClone = {};
+	var optionsClone = {};
 
-  if (keysToOmit === null || keysToOmit === undefined) {
-    keysToOmit = ['data'];
-  }
+	if (keysToOmit === null || keysToOmit === undefined) {
+		keysToOmit = ['data'];
+	}
 
-  for (var key in this.options) {
-    if (this.options.hasOwnProperty(key) && keysToOmit.indexOf(key) == -1) {
-      optionsClone[key] = this.options[key];
-    }
-  }
+	for (var key in this.options) {
+		if (this.options.hasOwnProperty(key) && keysToOmit.indexOf(key) == -1) {
+			optionsClone[key] = this.options[key];
+		}
+	}
 
-  return optionsClone;
+	return optionsClone;
 };
 
 JadeFilter.prototype.processString = function (str, relativePath, srcDir) {
-  var optionsClone = this.cloneOptions();
+	var optionsClone = this.cloneOptions();
 
-  // Pass along the filename option so that include/extend can work
-  optionsClone.filename = path.join(srcDir, relativePath);
+	// Pass along the filename option so that include/extend can work
+	optionsClone.filename = path.join(srcDir, relativePath);
 
 	return jade.compile(str, optionsClone)(this.options.data);
 };
