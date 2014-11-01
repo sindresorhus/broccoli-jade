@@ -1,4 +1,6 @@
 'use strict';
+var fs = require('fs');
+var Promise = require('rsvp').Promise;
 var Filter = require('broccoli-filter');
 var jade = require('jade');
 
@@ -17,7 +19,20 @@ JadeFilter.prototype.constructor = JadeFilter;
 JadeFilter.prototype.extensions = ['jade'];
 JadeFilter.prototype.targetExtension = 'html';
 
-JadeFilter.prototype.processString = function (str) {
+JadeFilter.prototype.processFile = function (srcDir, destDir, relativePath) {
+	var self = this
+	var inputEncoding = (this.inputEncoding === undefined) ? 'utf8' : this.inputEncoding
+	var outputEncoding = (this.outputEncoding === undefined) ? 'utf8' : this.outputEncoding
+	var string = fs.readFileSync(srcDir + '/' + relativePath, { encoding: inputEncoding })
+	return Promise.resolve(self.processString(string, relativePath, srcDir))
+		.then(function (outputString) {
+			var outputPath = self.getDestFilePath(relativePath)
+			fs.writeFileSync(destDir + '/' + outputPath, outputString, { encoding: outputEncoding })
+		});
+}
+
+JadeFilter.prototype.processString = function (str, relativePath, srcDir) {
+	this.options.filename = this.options.filename || (this.options.resolvePath || srcDir) + "/" + relativePath;
 	return jade.compile(str, this.options)(this.options.data);
 };
 
