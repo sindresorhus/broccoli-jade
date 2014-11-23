@@ -1,6 +1,6 @@
 {
   "name": "broccoli-jade",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Compile Jade templates",
   "license": "MIT",
   "repository": "sindresorhus/broccoli-jade",
