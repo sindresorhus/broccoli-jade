@@ -19,6 +19,9 @@ var jade = require('broccoli-jade');
 tree = jade(tree, options);
 ```
 
+### A note about include paths
+
+Include paths are resolved relative to the root of the tree, not to the Jade file itself. There are however workarounds to this, for example by using [`broccoli-static-compiler`](https://github.com/joliss/broccoli-static-compiler) - here's an [example](https://gist.github.com/fredrikekelund/7222b0fe9e7a2b600918).
 
 ## API
 
