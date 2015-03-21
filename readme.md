@@ -7,8 +7,8 @@
 
 ## Install
 
-```sh
-$ npm install --save broccoli-jade
+```
+$ npm install --save-dev broccoli-jade
 ```
 
 
@@ -25,7 +25,7 @@ Include paths are resolved relative to the root of the tree, not to the Jade fil
 
 ## API
 
-### jade(tree, options)
+### jade(tree, [options])
 
 #### options
 
