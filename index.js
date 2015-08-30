@@ -19,7 +19,10 @@ JadeFilter.prototype.targetExtension = 'html';
 
 JadeFilter.prototype.processString = function (str, filename) {
 	this.options.filename = filename;
-	return jade.compile(str, this.options)(this.options.data);
+	var data = this.options.data || {}
+	if (!("filename" in data))
+		data.filename = filename
+	return jade.compile(str, this.options)(data);
 };
 
 module.exports = JadeFilter;
