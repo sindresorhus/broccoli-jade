@@ -31,8 +31,9 @@ Include paths are resolved relative to the root of the tree, not to the Jade fil
 
 See the Jade [options](http://jade-lang.com/api/).
 
-In addition you can pass in `options.data` that will be used as locals for your HTML compilation.
+You can pass in `options.data` that will be used as locals for your HTML compilation.
 
+For `extends` and `blocks`, you may specify `options.resolvePath` which will be the directory used for relative Jade paths. Otherwise it is up to Broccoli internals.
 
 ## License
 
