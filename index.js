@@ -1,4 +1,5 @@
 'use strict';
+var fs = require('fs');
 var Filter = require('broccoli-filter');
 var jade = require('jade');
 
@@ -17,8 +18,15 @@ JadeFilter.prototype.constructor = JadeFilter;
 JadeFilter.prototype.extensions = ['jade'];
 JadeFilter.prototype.targetExtension = 'html';
 
-JadeFilter.prototype.processString = function (str, filename) {
-	this.options.filename = filename;
+JadeFilter.prototype.processFile = function (srcDir, destDir, relativePath) {
+	var string = fs.readFileSync(srcDir + '/' + relativePath, {encoding: this.inputEncoding || 'utf8'}),
+		outputString = this.processString(string, relativePath, srcDir),
+		outputPath = this.getDestFilePath(relativePath);
+	fs.writeFileSync(destDir + '/' + outputPath, outputString, {encoding: this.outputEncoding || 'utf8'});
+}
+
+JadeFilter.prototype.processString = function (str, relativePath, srcDir) {
+	this.options.filename = this.options.filename || (this.options.resolvePath || srcDir) + '/' + relativePath;
 	return jade.compile(str, this.options)(this.options.data);
 };
 
