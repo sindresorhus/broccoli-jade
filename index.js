@@ -7,6 +7,8 @@ function JadeFilter(inputTree, options) {
 		return new JadeFilter(inputTree, options);
 	}
 
+	Filter.call(this, inputTree);
+
 	this.inputTree = inputTree;
 	this.options = options || {};
 }
