@@ -1,3 +1,9 @@
+# Deprecated
+
+The project was renamed to Pug. Use `broccoli-pug` instead.
+
+---
+
 # [broccoli](https://github.com/joliss/broccoli)-jade [![Build Status](https://travis-ci.org/sindresorhus/broccoli-jade.svg?branch=master)](https://travis-ci.org/sindresorhus/broccoli-jade)
 
 > Compile [Jade](https://github.com/visionmedia/jade) templates
